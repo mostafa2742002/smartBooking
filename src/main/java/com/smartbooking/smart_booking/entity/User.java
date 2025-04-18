@@ -1,4 +1,4 @@
-package com.smartbooking.entity;
+package com.smartbooking.smart_booking.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.*;

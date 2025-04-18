@@ -1,16 +1,16 @@
-package com.smartbooking.service.impl;
+package com.smartbooking.smart_booking.service.impl;
 
 import java.util.Set;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.smartbooking.dto.RegisterRequest;
-import com.smartbooking.entity.User;
-import com.smartbooking.exception.ResourceAlreadyExistsException;
-import com.smartbooking.mapper.UserMapper;
-import com.smartbooking.repository.UserRepository;
-import com.smartbooking.service.inter.UserService;
+import com.smartbooking.smart_booking.dto.RegisterRequest;
+import com.smartbooking.smart_booking.entity.User;
+import com.smartbooking.smart_booking.exception.ResourceAlreadyExistsException;
+import com.smartbooking.smart_booking.mapper.UserMapper;
+import com.smartbooking.smart_booking.repository.UserRepository;
+import com.smartbooking.smart_booking.service.inter.UserService;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService {
         user.setRoles(Set.of(User.Role.USER));
         return userRepository.save(user);
     }
-    
+
 }
 
 

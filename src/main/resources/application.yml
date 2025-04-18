@@ -36,6 +36,10 @@ spring:
                 format_sql: true
 
 jwt:
-    secret: mostafamahmoudismailhamed
+    secret: mostafamahmoudismailhamed123456789#$%^&
     expiration: 86400000
 
+# application.yml
+logging:
+  level:
+    org.springframework.security: DEBUG

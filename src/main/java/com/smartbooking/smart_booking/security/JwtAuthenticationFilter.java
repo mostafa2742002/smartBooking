@@ -1,4 +1,4 @@
-package com.smartbooking.security;
+package com.smartbooking.smart_booking.security;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -23,9 +23,24 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Autowired
     private CustomUserDetailsService userDetailsService;
 
+    // don't check this apis: 
+    @Override
+    public boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
+        String path = request.getRequestURI();
+        // "/", "/error", "/webjars/**", "/index.html", "/signup", "/signin"
+        return path.startsWith("/webjars") || path.startsWith("/index.html") || path.startsWith("api/auth/register")
+                || path.startsWith("/api/auth/login") || path.equals("/api") 
+                || path.startsWith("/swagger-ui.html") || path.startsWith("/swagger-resources")
+                || path.startsWith("/v2/api-docs") || path.startsWith("/v3/api-docs") ||
+                path.startsWith("/configuration/ui") || path.startsWith("/configuration/security")
+                || path.startsWith("/swagger-ui") || path.startsWith("/webjars");
+    }
+
+
     @Override
     protected void doFilterInternal(HttpServletRequest request,HttpServletResponse response,FilterChain filterChain)
     throws ServletException, IOException {
+        System.out.println("new request");
         String token = getJwtFromRequest(request);
 
         if (StringUtils.hasText(token) && tokenProvider.validateToken(token)) {

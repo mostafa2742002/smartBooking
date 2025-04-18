@@ -1,4 +1,4 @@
-package com.smartbooking.exception;
+package com.smartbooking.smart_booking.exception;
 
 public class ResourceAlreadyExistsException extends RuntimeException {
     public ResourceAlreadyExistsException(String message) {

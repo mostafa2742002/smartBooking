@@ -1,10 +1,11 @@
-package com.smartbooking.mapper;
+package com.smartbooking.smart_booking.mapper;
 
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import com.smartbooking.dto.RegisterRequest;
-import com.smartbooking.entity.User;
+
+import com.smartbooking.smart_booking.dto.RegisterRequest;
+import com.smartbooking.smart_booking.entity.User;
 
 @Mapper(componentModel = "spring")
 public interface UserMapper {

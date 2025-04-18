@@ -1,4 +1,4 @@
-package com.smartbooking.controller;
+package com.smartbooking.smart_booking.controller;
 
 
 import jakarta.validation.Valid;
@@ -11,11 +11,11 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
-import com.smartbooking.dto.*;
-import com.smartbooking.entity.User;
-import com.smartbooking.repository.UserRepository;
-import com.smartbooking.security.JwtTokenProvider;
-import com.smartbooking.service.inter.UserService;
+import com.smartbooking.smart_booking.dto.*;
+import com.smartbooking.smart_booking.entity.User;
+import com.smartbooking.smart_booking.repository.UserRepository;
+import com.smartbooking.smart_booking.security.JwtTokenProvider;
+import com.smartbooking.smart_booking.service.inter.UserService;
 
 @RestController
 @RequestMapping("/api/auth")

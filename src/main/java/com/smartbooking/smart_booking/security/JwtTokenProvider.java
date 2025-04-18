@@ -1,10 +1,11 @@
-package com.smartbooking.security;
+package com.smartbooking.smart_booking.security;
 
-import com.smartbooking.entity.User;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+
+import com.smartbooking.smart_booking.entity.User;
 
 import java.util.Date;
 import java.util.Set;

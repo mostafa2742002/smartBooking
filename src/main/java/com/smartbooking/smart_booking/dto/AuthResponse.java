@@ -1,4 +1,4 @@
-package com.smartbooking.dto;
+package com.smartbooking.smart_booking.dto;
 
 import lombok.*;
 
