@@ -1,0 +1,41 @@
+# Documentation for application.yml
+# 
+# This configuration file is used to set up the properties for a Spring Boot application.
+# 
+# Spring Configuration:
+# - Datasource:
+#   - url: Specifies the JDBC URL for connecting to the MySQL database.
+#   - driver-class-name: Defines the JDBC driver class for MySQL.
+#   - username: The username for the database connection.
+#   - password: The password for the database connection.
+# - JPA (Java Persistence API):
+#   - hibernate.ddl-auto: Specifies the strategy for schema generation (e.g., update).
+#   - show-sql: Logs SQL statements executed by Hibernate.
+#   - properties.hibernate.format_sql: Formats SQL statements in the logs.
+# 
+# JWT (JSON Web Token) Configuration:
+# - secret: The secret key used for signing and verifying JWT tokens.
+# - expiration: The expiration time for JWT tokens in milliseconds (e.g., 86400000 = 24 hours).
+# 
+# Note: Ensure sensitive information like database credentials and JWT secrets are stored securely.
+
+
+
+spring:
+    datasource:
+        url: jdbc:mysql://localhost:3307/mydb
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        username: root
+        password: root
+    jpa:
+        hibernate:
+            ddl-auto: update
+        show-sql: true
+        properties:
+            hibernate:
+                format_sql: true
+
+jwt:
+    secret: mostafamahmoudismailhamed
+    expiration: 86400000
+
