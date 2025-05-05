@@ -8,8 +8,10 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RegisterRequest {
+    
     @NotBlank
-    private String username;
+    @Email
+    private String email;
 
     @NotBlank
     @Size(min = 6, message = "Password must be at least 6 characters")

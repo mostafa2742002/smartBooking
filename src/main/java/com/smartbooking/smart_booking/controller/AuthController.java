@@ -37,11 +37,11 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> login(@Valid @RequestBody LoginRequest req) {
         Authentication auth = authenticationManager.authenticate(
-            new UsernamePasswordAuthenticationToken(req.getUsername(), req.getPassword())
+            new UsernamePasswordAuthenticationToken(req.getEmail(), req.getPassword())
         );
         SecurityContextHolder.getContext().setAuthentication(auth);
 
-        User user = userRepository.findByUsername(req.getUsername())
+        User user = userRepository.findByEmail(req.getEmail())
             .orElseThrow(); // لن يحدث لأن auth مرت بنجاح
         String token = tokenProvider.generateToken(user);
         return ResponseEntity.ok(new AuthResponse(token));

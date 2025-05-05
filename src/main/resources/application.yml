@@ -23,7 +23,7 @@
 
 spring:
     datasource:
-        url: jdbc:mysql://localhost:3307/mydb
+        url: jdbc:mysql://localhost:3307/smartbooking
         driver-class-name: com.mysql.cj.jdbc.Driver
         username: root
         password: root
