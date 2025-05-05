@@ -13,5 +13,5 @@ public class BookingRequest {
     private Long serviceId;
 
     @NotNull
-    private LocalDateTime bookingTime;
+    private LocalDateTime bookingTime; // example data is : 
 }
