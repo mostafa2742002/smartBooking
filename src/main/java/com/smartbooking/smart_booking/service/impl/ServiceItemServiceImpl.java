@@ -3,6 +3,8 @@ package com.smartbooking.smart_booking.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.smartbooking.smart_booking.dto.ServiceItemRequest;
@@ -51,6 +53,10 @@ public class ServiceItemServiceImpl implements ServiceItemService{
         serviceItemRepository.deleteById(id);
     }
 
-
+    @Override
+    public Page<ServiceItemResponse> list(String nameFilter, Pageable pageable) {
+        return serviceItemRepository.findByNameContainingIgnoreCase(nameFilter, pageable)
+                .map(serviceItemMapper::toDto);
+    }
 
 }
