@@ -34,10 +34,10 @@ public class BookingServiceImpl implements BookingService {
     @Transactional
     public BookingResponse book(String email, BookingRequest req) {
         User user = userRepo.findByEmail(email)
-            .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+            .orElseThrow(() -> new ResourceNotFoundException("User","Email",email));
 
         ServiceItem item = serviceRepo.findById(req.getServiceId())
-            .orElseThrow(() -> new ResourceNotFoundException("Service not found"));
+            .orElseThrow(() -> new ResourceNotFoundException("Service","ServiceId", req.getServiceId().toString()));
 
         Booking booking = Booking.builder()
             .user(user)
@@ -62,7 +62,7 @@ public class BookingServiceImpl implements BookingService {
     @Transactional
     public void cancel(String username, Long bookingId) {
         Booking booking = bookingRepo.findById(bookingId)
-            .orElseThrow(() -> new ResourceNotFoundException("Booking not found"));
+            .orElseThrow(() -> new ResourceNotFoundException("Book", "bookingId",bookingId.toString()));
         if (!booking.getUser().getEmail().equals(username)) {
             throw new IllegalStateException("Cannot cancel someone else's booking");
         }

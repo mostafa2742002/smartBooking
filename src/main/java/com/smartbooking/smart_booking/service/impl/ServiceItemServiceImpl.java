@@ -49,7 +49,7 @@ public class ServiceItemServiceImpl implements ServiceItemService{
     @Transactional
     public void delete(Long id) {
         if (!serviceItemRepository.existsById(id)) {
-            throw new ResourceNotFoundException("ServiceItem with id " + id + " not found");
+            throw new ResourceNotFoundException("ServiceItem","Id", id.toString());
         }
         serviceItemRepository.deleteById(id);
     }
